@@ -28,11 +28,13 @@ export function ProductDetailModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="pr-6">{product.title}</DialogTitle>
+          <DialogTitle className="pr-6 text-slate-900 dark:text-slate-50">
+            {product.title}
+          </DialogTitle>
         </DialogHeader>
         <div className="space-y-6">
           {/* Product Image */}
-          <div className="relative h-64 w-full bg-white rounded-lg overflow-hidden">
+          <div className="relative h-64 w-full bg-white dark:bg-slate-900 rounded-lg overflow-hidden">
             <Image
               src={product.image}
               alt={product.title}
@@ -50,8 +52,10 @@ export function ProductDetailModal({
             </Badge>
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-medium">{product.rating.rate}</span>
-              <span className="text-sm text-slate-500">
+              <span className="font-medium text-slate-900 dark:text-slate-50">
+                {product.rating.rate}
+              </span>
+              <span className="text-sm text-slate-500 dark:text-slate-400">
                 ({product.rating.count} reviews)
               </span>
             </div>
@@ -59,16 +63,18 @@ export function ProductDetailModal({
 
           {/* Description */}
           <div>
-            <h3 className="font-semibold mb-2">Description</h3>
-            <p className="text-slate-600 leading-relaxed">
+            <h3 className="font-semibold mb-2 text-slate-900 dark:text-slate-50">
+              Description
+            </h3>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
               {product.description}
             </p>
           </div>
 
           {/* Price */}
-          <div className="flex items-center justify-between pt-4 border-t">
-            <span className="text-sm text-slate-600">Price</span>
-            <span className="text-3xl font-bold text-slate-800">
+          <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-700">
+            <span className="text-sm text-slate-600 dark:text-slate-400">Price</span>
+            <span className="text-3xl font-bold text-slate-800 dark:text-slate-50">
               ${product.price.toFixed(2)}
             </span>
           </div>

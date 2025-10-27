@@ -19,25 +19,27 @@ export function LeadCard({ lead, onEdit, onDelete }: LeadCardProps) {
 
   return (
     <>
-      <Card className="hover:shadow-lg transition-shadow duration-200">
+      <Card className="hover:shadow-lg transition-shadow duration-200 bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700">
         <CardHeader className="pb-3">
           <div className="flex items-start justify-between">
-            <CardTitle className="text-lg">{lead.name}</CardTitle>
+            <CardTitle className="text-lg text-slate-900 dark:text-slate-50">
+              {lead.name}
+            </CardTitle>
             <Badge variant="secondary" className="text-xs">
               ID: {lead.id}
             </Badge>
           </div>
         </CardHeader>
         <CardContent className="space-y-3">
-          <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
             <Mail className="w-4 h-4" />
             <span className="truncate">{lead.email}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
             <Building2 className="w-4 h-4" />
             <span className="truncate">{lead.company.name}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
             <MapPin className="w-4 h-4" />
             <span>{lead.address.city}</span>
           </div>

@@ -2,18 +2,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, Package } from "lucide-react";
 import { LeadsSection } from "@/components/leads/leads-section";
 import { ProductsSection } from "@/components/products/products-section";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function DashboardPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Header */}
-      <header className="mb-8">
-        <h1 className="text-4xl font-bold text-slate-800 dark:text-white mb-2">
-          Dashboard
-        </h1>
-        <p className="text-slate-600 dark:text-slate-400">
-          Manage your leads and product catalog
-        </p>
+      {/* Header with Theme Toggle */}
+      <header className="mb-8 flex items-start justify-between">
+        <div>
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+            Dashboard
+          </h1>
+          <p className="text-slate-600 dark:text-slate-400">
+            Manage your leads and product catalog
+          </p>
+        </div>
+        <ThemeToggle />
       </header>
 
       {/* Tabs Navigation */}
@@ -31,16 +35,20 @@ export default function DashboardPage() {
 
         {/* Leads Section */}
         <TabsContent value="leads">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-6">Leads Management</h2>
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6">
+            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50">
+              Leads Management
+            </h2>
             <LeadsSection />
           </div>
         </TabsContent>
 
         {/* Products Section */}
         <TabsContent value="products">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-6">Product Catalog</h2>
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6">
+            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50">
+              Product Catalog
+            </h2>
             <ProductsSection />
           </div>
         </TabsContent>
