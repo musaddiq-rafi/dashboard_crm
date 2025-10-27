@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import SWRProvider from "./SWRProvider"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +25,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors animate-in fade-in">
-            {children}
-          </div>
+          <SWRProvider>
+            <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 transition-colors">
+              {children}
+            </div>
+          </SWRProvider>
         </ThemeProvider>
       </body>
     </html>

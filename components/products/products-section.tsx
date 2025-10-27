@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Product } from "@/types/products";
 import { ProductCard } from "./product-card";
 import { ProductDetailModal } from "./product-detail-modal";
@@ -13,34 +13,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Filter } from "lucide-react";
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export function ProductsSection() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const { data: products = [], error, isLoading } = useSWR<Product[]>(
+    "https://fakestoreapi.com/products",
+    fetcher
+  );
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
-
-  // Fetch products from API
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        setLoading(true);
-        const response = await fetch("https://fakestoreapi.com/products");
-        if (!response.ok) throw new Error("Failed to fetch products");
-        const data = await response.json();
-        setProducts(data);
-        setFilteredProducts(data);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchProducts();
-  }, []);
 
   // Get unique categories
   const categories = useMemo(() => {
@@ -51,14 +35,11 @@ export function ProductsSection() {
   }, [products]);
 
   // Filter by category
-  useEffect(() => {
+  const filteredProducts = useMemo(() => {
     if (selectedCategory === "all") {
-      setFilteredProducts(products);
-    } else {
-      setFilteredProducts(
-        products.filter((product) => product.category === selectedCategory)
-      );
+      return products;
     }
+    return products.filter((product) => product.category === selectedCategory);
   }, [selectedCategory, products]);
 
   // Handle view details
@@ -67,7 +48,7 @@ export function ProductsSection() {
     setIsDetailModalOpen(true);
   };
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
@@ -85,7 +66,7 @@ export function ProductsSection() {
   if (error) {
     return (
       <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
-        Error: {error}
+        Error: Failed to load products.
       </div>
     );
   }
