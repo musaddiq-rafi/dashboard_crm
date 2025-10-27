@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, Package } from "lucide-react";
 import { LeadsSection } from "@/components/leads/leads-section";
+import { ProductsSection } from "@/components/products/products-section";
 
 export default function DashboardPage() {
   return (
@@ -39,8 +40,8 @@ export default function DashboardPage() {
         {/* Products Section */}
         <TabsContent value="products">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-4">Product Catalog</h2>
-            <p className="text-slate-600">Products content will go here...</p>
+            <h2 className="text-2xl font-semibold mb-6">Product Catalog</h2>
+            <ProductsSection />
           </div>
         </TabsContent>
       </Tabs>
