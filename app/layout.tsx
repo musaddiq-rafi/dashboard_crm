@@ -24,7 +24,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors">
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-900 transition-colors animate-in fade-in">
             {children}
           </div>
         </ThemeProvider>

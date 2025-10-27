@@ -6,14 +6,14 @@ import { ThemeToggle } from "@/components/theme-toggle";
 
 export default function DashboardPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8 animate-in fade-in slide-in-from-bottom-2">
       {/* Header with Theme Toggle */}
       <header className="mb-8 flex items-start justify-between">
         <div>
-          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-2 animate-in fade-in slide-in-from-left-2">
             Dashboard
           </h1>
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-slate-600 dark:text-slate-400 animate-in fade-in slide-in-from-left-2">
             Manage your leads and product catalog
           </p>
         </div>
@@ -21,8 +21,8 @@ export default function DashboardPage() {
       </header>
 
       {/* Tabs Navigation */}
-      <Tabs defaultValue="leads" className="w-full">
-        <TabsList className="grid w-full max-w-md grid-cols-2 mb-8">
+      <Tabs defaultValue="leads" className="w-full animate-in fade-in slide-in-from-bottom-2">
+        <TabsList className="grid w-full max-w-md grid-cols-2 mb-8 animate-in fade-in zoom-in-95">
           <TabsTrigger value="leads" className="flex items-center gap-2">
             <Users className="w-4 h-4" />
             Leads
@@ -35,8 +35,8 @@ export default function DashboardPage() {
 
         {/* Leads Section */}
         <TabsContent value="leads">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6">
-            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50">
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-in fade-in slide-in-from-left-2">
+            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50 animate-in fade-in slide-in-from-left-2">
               Leads Management
             </h2>
             <LeadsSection />
@@ -45,8 +45,8 @@ export default function DashboardPage() {
 
         {/* Products Section */}
         <TabsContent value="products">
-          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6">
-            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50">
+          <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700 p-6 animate-in fade-in slide-in-from-right-2">
+            <h2 className="text-2xl font-semibold mb-6 text-slate-900 dark:text-slate-50 animate-in fade-in slide-in-from-right-2">
               Product Catalog
             </h2>
             <ProductsSection />
