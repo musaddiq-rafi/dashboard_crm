@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, Package } from "lucide-react";
+import { LeadsSection } from "@/components/leads/leads-section";
 
 export default function DashboardPage() {
   return (
@@ -30,8 +31,8 @@ export default function DashboardPage() {
         {/* Leads Section */}
         <TabsContent value="leads">
           <div className="bg-white dark:bg-slate-800 rounded-lg shadow-sm p-6">
-            <h2 className="text-2xl font-semibold mb-4">Leads Management</h2>
-            <p className="text-slate-600">Leads content will go here...</p>
+            <h2 className="text-2xl font-semibold mb-6">Leads Management</h2>
+            <LeadsSection />
           </div>
         </TabsContent>
 
